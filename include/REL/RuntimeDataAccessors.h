@@ -224,7 +224,7 @@ namespace REL
 	{                                                                                                     \
 		if SKYRIM_REL_CONSTEXPR (REL::Module::IsAE()) {                                                   \
 			if (REL::Module::get().version().compare(Version) != std::strong_ordering::less) {            \
-				return REL::RelocateMember<StructType*>(this, AEOffset);                                  \
+				return std::addressof(REL::RelocateMember<StructType>(this, AEOffset));                   \
 			}                                                                                             \
 		}                                                                                                 \
 		return nullptr;                                                                                   \
